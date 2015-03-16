@@ -96,13 +96,11 @@ Example;
                         "nfsReadSizeBits": 20,
                         "nfsWriteSizeBits": 20,
                         "nfsSplitSizeBits": 30,
-                        "nfsAuthScheme": "AUTH_SYS",
+                        "nfsAuthScheme": "AUTH_NONE",
                         "nfsUsername": "root",
                         "nfsGroupname": "root",
                         "nfsUid": 0,
                         "nfsGid": 0,
-                        "nfsUserConfigFile": "/etc/hadoop/conf/nfs-users.json",
-                        "nfsGroupConfigFile": "/etc/hadoop/conf/nfs-groups.json",
                         "nfsPort": 2049,
                         "nfsMountPort": -1,
                         "nfsRpcbindPort": 111
@@ -127,16 +125,12 @@ $ docker build -t hoge/fuga .
 ```
 Run a container
 ```
-$ docker run --rm -i -t --name demo -p 8088:8088 hoge/fuga
-```
-or
-```
 $ docker run --rm -i -t --name demo -p 8088:8088 hoge/fuga /sbin/my_init -- bash -l
 ``` 
 
 Verification 
 ```
-$ docker exec -it demo hadoop fs -ls /
+$ hadoop fs -ls /
 Store with ep Endpoint: host=nfs://192.168.0.60:2049/ export=/ path=/ has fsId 2147484673
 Found 3 items
 drwxrwxrwx   - root root       4096 2015-02-23 17:05 /.snapshot
@@ -150,7 +144,6 @@ drwxr-xr-x   - root root       4096 2015-02-23 16:51 /hadoopvol02
 
 Try TeraGen
 ```
-$ docker exec -it demo bash
 $ yarn jar /usr/lib/hadoop-mapreduce/hadoop-mapreduce-examples.jar teragen 10000 /hadoopvol1/data1MB
 Store with ep Endpoint: host=nfs://192.168.0.60:2049/ export=/htop path=/ has fsId 2147484677
 15/02/25 02:33:31 INFO nfs.NFSv3FileSystem: getAndVerifyHandle(): Parent path nfs://192.168.0.60:2049/hadoopvol01 could not be found

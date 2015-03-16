@@ -45,7 +45,7 @@ Edit **core-site.xml** and **nfs-mapping.json**
 $ cd nfsconnector/1.0.4
 ```
 
-* Edit a value of **fs.defaultFS**
+Edit a value of **fs.defaultFS**
 
 ```xml
 # Example : core-site.xml
@@ -78,9 +78,9 @@ $ cd nfsconnector/1.0.4
   </property>
 ```
 
-* Edit a value of **spaces : uri**
-* Edit a value of **spaces : options : nfsExportPath**
-* Edit two values of **spaces : endpoints : host,path**
+Edit a value of **spaces : uri**
+Edit a value of **spaces : options : nfsExportPath**
+Edit two values of **spaces : endpoints : host,path**
 
 ```json
 # Example : nfs-mapping.json file

@@ -79,7 +79,9 @@ Edit a value of **fs.defaultFS**
 ```
 
 Edit a value of **spaces : uri**
+
 Edit a value of **spaces : options : nfsExportPath**
+
 Edit two values of **spaces : endpoints : host,path**
 
 ```json

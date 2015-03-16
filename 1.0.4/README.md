@@ -128,9 +128,9 @@ Run a container
 $ docker run --rm -i -t --name demo -p 8088:8088 hoge/fuga /sbin/my_init -- bash -l
 ``` 
 
-Verification 
+Verification (Example)
 ```
-$ hadoop fs -ls /
+root@eb29bb9fdb7b:/# hadoop fs -ls /
 Store with ep Endpoint: host=nfs://192.168.0.60:2049/ export=/ path=/ has fsId 2147484673
 Found 3 items
 drwxrwxrwx   - root root       4096 2015-02-23 17:05 /.snapshot
@@ -142,9 +142,9 @@ drwxr-xr-x   - root root       4096 2015-02-23 16:51 /hadoopvol02
 ##Try NFS Connector
 
 
-Try TeraGen
+Try TeraGen (Example)
 ```
-$ yarn jar /usr/lib/hadoop-mapreduce/hadoop-mapreduce-examples.jar teragen 10000 /hadoopvol1/data1MB
+root@eb29bb9fdb7b:/# yarn jar /usr/lib/hadoop-mapreduce/hadoop-mapreduce-examples.jar teragen 10000 /hadoopvol1/data1MB
 Store with ep Endpoint: host=nfs://192.168.0.60:2049/ export=/htop path=/ has fsId 2147484677
 15/02/25 02:33:31 INFO nfs.NFSv3FileSystem: getAndVerifyHandle(): Parent path nfs://192.168.0.60:2049/hadoopvol01 could not be found
 15/02/25 02:33:31 INFO client.RMProxy: Connecting to ResourceManager at /0.0.0.0:8032
@@ -160,9 +160,10 @@ STREAMSTATS     name: class org.apache.hadoop.fs.nfs.stream.NFSBufferedInputStre
                 Bytes Read=0
         File Output Format Counters
                 Bytes Written=1000000
-$ 
 
-$ hadoop fs -ls -R /hadoopvol1/
+root@eb29bb9fdb7b:/# 
+
+root@eb29bb9fdb7b:/# hadoop fs -ls -R /hadoopvol1/
 Store with ep Endpoint: host=nfs://192.168.0.60:2049/ export=/htop path=/ has fsId 2147484677
 Store with ep Endpoint: host=nfs://192.168.0.60:2049/ export=null path=/hadoopvol1/ has fsId 2147484677
 drwxrwxrwx   - root root       4096 2015-02-25 03:07 /hadoopvol1/data1MB
@@ -173,4 +174,18 @@ drwxrwxrwx   - root root       4096 2015-02-25 03:07 /hadoopvol1/data1MB
 Stop a container
 ```
 $ docker stop demo
+```
+
+****
+
+Access on Browser
+
+* Hadoop
+ * http://*your docker host ip address*:8088/
+
+<a name="test"></a>
+##Test Job
+
+```
+$ hadoop jar /usr/lib/hadoop-mapreduce/hadoop-mapreduce-examples.jar pi 2 100
 ```

@@ -45,11 +45,10 @@ Edit **core-site.xml** and **nfs-mapping.json**
 $ cd nfsconnector/1.0.4
 ```
 
-Example;
 * Edit a value of **fs.defaultFS**
 
 ```xml
-# core-site.xml
+# Example : core-site.xml
 <configuration>
 
   <!-- NetApp NFS Connector Setting -->
@@ -79,13 +78,12 @@ Example;
   </property>
 ```
 
-Example;
 * Edit a value of **spaces : uri**
 * Edit a value of **spaces : options : nfsExportPath**
 * Edit two values of **spaces : endpoints : host,path**
 
 ```json
-# nfs-mapping.json file
+# Example : nfs-mapping.json file
 {
         "spaces": [
                 {

@@ -25,11 +25,11 @@ Details : [NetApp Hadoop NFS Connector](https://github.com/NetApp/NetApp-Hadoop-
 
 Dockerfile download
 ```
-$ git clone https://github.com/tksarah/dockerfile.git
+$ git clone https://github.com/tksarah/nfsconnector.git
 ```
 
 ```
-$ cd dockerfile/nfs-connector/1.0.6
+$ cd ./nfs-connector/1.0.6
 ```
 
 Build a docker image

@@ -34,12 +34,12 @@ cdot-01::*> vserver nfs modify -vserver nfstestserver -v3-tcp-max-write-size 655
 
 Dockerfile download
 ```
-$ git clone https://github.com/tksarah/dockerfile.git
+$ git clone https://github.com/tksarah/nfsconnector.git
 ```
 
 Edit **core-site.xml** and **nfs-mapping.json**
 ```
-$ cd dockerfile/nfs-connector/1.0.6
+$ cd ./nfsconnector/1.0.6
 ```
 
 Example;

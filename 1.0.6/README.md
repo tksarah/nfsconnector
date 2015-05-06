@@ -29,7 +29,7 @@ $ git clone https://github.com/tksarah/dockerfile.git
 ```
 
 ```
-$ cd dockerfile/nfs-connector/test-20150305
+$ cd dockerfile/nfs-connector/1.0.6
 ```
 
 Build a docker image

@@ -1,0 +1,20 @@
+{
+  "usernames":[
+    {
+      "userName":"root",
+      "userID":"0"
+    },
+    {
+      "userName":"hdfs",
+      "userID":"106"
+    },
+    {
+      "userName":"testuser",
+      "userID":"501"
+    },
+    {
+      "userName":"hoge",
+      "userID":"502"
+    }
+  ]
+}

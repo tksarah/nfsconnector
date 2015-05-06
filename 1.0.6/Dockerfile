@@ -1,7 +1,8 @@
 # NetApp NFS Connector with CDH 5.3.1 on Ubuntu 14.04
 #
-# VERSION               1.0.1
+# VERSION               1.0.6
 
+#FROM tksarah/cdh_nfs_connector
 FROM tksarah/cdh_nfs_connector:latest
 MAINTAINER Takeshi.K <sarah@fm.secret.jp>
 
@@ -23,14 +24,25 @@ COPY yarn-daemon.sh /usr/lib/hadoop-yarn/sbin/yarn-daemon.sh
 
 # NFS Connector Setting
 COPY nfs-mapping.json /etc/hadoop/conf/
-RUN  mv /etc/hadoop/conf/core-site.xml /etc/hadoop/conf/org.core-site.xml
+COPY nfs-users.json /etc/hadoop/conf/
+COPY nfs-groups.json /etc/hadoop/conf/
+RUN  groupadd -g 501 testuser && \
+     groupadd -g 502 hoge && \
+     useradd -m -u 501 testuser -g 501 && \
+     useradd -m -u 502 hoge -g 502 && \
+     mv /etc/hadoop/conf/core-site.xml /etc/hadoop/conf/org.core-site.xml
 COPY core-site.xml /etc/hadoop/conf/
-RUN  chmod 755 /etc/hadoop/conf/core-site.xml
+RUN  chmod 755 /etc/hadoop/conf/core-site.xml && \
+     chown root.hadoop /etc/hadoop/conf/*
+
+# Copy Module
 COPY hadoop-nfs-connector-1.0.6.jar /usr/lib/hadoop/lib/
 
 # Bug fixed hadoop-nfs.jar
 COPY hadoop-nfs-3.0.0-SNAPSHOT.jar /usr/lib/hadoop/
 RUN  ln -sf /usr/lib/hadoop/hadoop-nfs-3.0.0-SNAPSHOT.jar /usr/lib/hadoop/hadoop-nfs.jar
 
+# Clean up
+COPY .bash_logout /root/
 
 CMD ["/sbin/my_init"]

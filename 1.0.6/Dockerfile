@@ -14,6 +14,7 @@ RUN  mkdir -p /etc/service/hadoop-yarn-resourcemanager && \
      mv /etc/service/syslog-forwarder /root && \
      mv /etc/service/cron /root && \
      mv /etc/service/sshd /root && \
+     mv /etc/my_init.d/00_regen_ssh_host_keys.sh /root && \
      cat /tmp/add_logf4.txt >> /etc/hadoop/conf/log4j.properties
 COPY r-run /etc/service/hadoop-yarn-resourcemanager/run
 COPY n-run /etc/service/hadoop-yarn-nodemanager/run

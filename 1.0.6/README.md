@@ -6,7 +6,6 @@ Details : [NetApp Hadoop NFS Connector](https://github.com/NetApp/NetApp-Hadoop-
 ##Table of contents
 
  * [Demo Enviromnent](#env)
- * [Configuration](CONFIG.md)
  * [Setup Docker Container](#cont)
  * [Try NFS Connector](#try)
  * [Test Job](#test)

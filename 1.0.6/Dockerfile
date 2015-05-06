@@ -28,4 +28,9 @@ COPY core-site.xml /etc/hadoop/conf/
 RUN  chmod 755 /etc/hadoop/conf/core-site.xml
 COPY hadoop-nfs-connector-1.0.6.jar /usr/lib/hadoop/lib/
 
+# Bug fixed hadoop-nfs.jar
+COPY hadoop-nfs-3.0.0-SNAPSHOT.jar /usr/lib/hadoop/
+RUN  ln -sf /usr/lib/hadoop/hadoop-nfs-3.0.0-SNAPSHOT.jar /usr/lib/hadoop/hadoop-nfs.jar
+
+
 CMD ["/sbin/my_init"]
